@@ -10,7 +10,9 @@ for (final product in products) {
   product.showInfo();
 }
 }
-Product? findProduct(int id) { for (final product in products) { if (product.id == id) { return product; } }
+Product? findProduct(int id) 
+{ for (final product in products)
+ { if (product.id == id) { return product; } }
 return null;
 }
 void addProduct(Product product) { products.add(product); }

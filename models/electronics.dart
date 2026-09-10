@@ -15,12 +15,12 @@ class Electronics extends Product with Loggable {
     this.warrantyMonths,
   ) : manufacturer = manufacturer,
        super(
-         id,
-         name,
-         price,
-         quantity,
-         ProductCategory.electronics,
-       );
+ id,
+ name,
+ price,
+ quantity,
+ ProductCategory.electronics,
+ );
 
   @override
   void showInfo() {

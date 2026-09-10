@@ -2,16 +2,16 @@ import 'models/product.dart';
 import 'models/food.dart';
 import 'mixins.dart';
 
-// Интерфейс для скидок (требование #7)
+
 abstract class Discountable {
   int calculateDiscount(int total);
 }
 
 class Cart with Loggable {
-  // Map для хранения товаров: ключ - ID, значение - товар (требование #15)
+  
   final Map<int, Product> cartItems = {};
 
-  // Set для отслеживания уникальных ID купленных товаров (требование #15)
+  
   final Set<int> purchasedProductIds = {};
 
   void addItem(Product product, int quantity) {
@@ -25,12 +25,12 @@ class Cart with Loggable {
       return;
     }
 
-    // Проверяем, есть ли уже этот товар в корзине (используем Map)
+    
     if (cartItems.containsKey(product.id)) {
       cartItems[product.id]!.increaseQuantity(quantity);
       log('Товар "${product.name}" добавлен в корзину (+$quantity шт)');
     } else {
-      // Добавляем новый товар в корзину
+      
       if (!product.decreaseQuantity(quantity)) {
         log('Ошибка при добавлении товара.');
         return;
@@ -68,12 +68,12 @@ class Cart with Loggable {
     return total;
   }
 
-  // Применить скидку (требование #30)
+  
   int applyDiscount(int total) {
     for (final item in cartItems.values) {
-      // Проверяем, является ли товар скидываемым (требование #26)
+      
       if (item is Discountable) {
-        final discountable = item as Discountable; // Требование #27
+        final discountable = item as Discountable;
         final discount = discountable.calculateDiscount(total);
         return total - discount;
       }

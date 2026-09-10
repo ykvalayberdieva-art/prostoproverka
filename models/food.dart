@@ -15,18 +15,18 @@ class Food extends Product implements Discountable {
     int quantity,
     this.expirationDate,
   ) : super(
-          id,
-          name,
-          price,
-          quantity,
-          ProductCategory.food,
-        );
+  id,
+  name,
+  price,
+ quantity,
+ ProductCategory.food,
+ );
 
   @override
   void showInfo() {
     print(
-      '[$id] $name | $price сом | Остаток: $quantity | '
-      'Еда | Срок годности: $expirationDate',
+ '[$id] $name | $price сом | Остаток: $quantity | '
+ 'Еда | Срок годности: $expirationDate',
     );
   }
 
